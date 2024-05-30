@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: column;/* ORIGINAL */    
+    max-width: 350px;
+    background-color: lightcoral;
+}
+
+.row {
+    /* display: flex;
+    flex-direction: row; */
+}
+
+button {
+    width: 90px;
+    margin-top: 10px;  
+}
+
+.error {
+    color: red;
+}

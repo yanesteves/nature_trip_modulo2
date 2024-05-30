@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./styles.css">
+     
+    </head>
+    <body>
+        <div class="container">
+            <h1>Calculadora Simples</h1>
+
+            <div>
+                <span>Número 1:</span>
+                <input id="input-num1" type="number">
+            </div>
+
+            <div class="row">
+                <span>Número 2:</span>
+                <input id="input-num2" type="number">
+            </div>            
+
+            <button onclick="calcular()">Calcular</button>
+            <!-- class="error" -->
+            <span id="txtResultado">Resultado:</span>
+
+            <button>Validar</button>
+        </div>
+
+        <script>
+            const numero1 = document.getElementById('input-num1')
+            const numero2 = document.getElementById('input-num2')
+            const txtResultado = document.getElementById('txtResultado')
+
+            function calcular() {
+                try {
+                    console.log('Calculando alguma coisa...')                
+                    const resultado = parseInt(numero1.value) + parseInt(numero2.value)
+                    txtResultado.innerText = `Resultado: ${resultado}`    
+                    txtResultado.classList.remove('error')
+                } catch (error) {
+                    txtResultado.innerText = 'Não foi possível calcular.'
+                    txtResultado.classList.add('error')
+                }
+            }
+        </script>
+
+        <!-- <script src="main.js"></script> -->
+    </body>
+</html>
