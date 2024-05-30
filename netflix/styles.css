@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    /* background-image: url('./imgs/poster.png'); */
+    height: 100vh;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: row;    
+    list-style-type: none;
+    padding: 2em 25vw;
+    justify-content: space-between;
+    align-items: flex-end
+
+}
+
+ul li {
+    cursor: pointer;
+}
