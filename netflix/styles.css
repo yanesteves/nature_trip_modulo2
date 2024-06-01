@@ -2,14 +2,14 @@
     margin: 0;
     color: white;
     font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     background-color: black;
-    /* background-image: url('./imgs/poster.png'); */
-    height: 100vh;
+    min-height: 100%;    
 }
 
 .menu ul {
@@ -24,4 +24,70 @@
 
 ul li {
     cursor: pointer;
+}
+
+.info_serie {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+}
+
+.titulo {
+    font-size: 18px;
+}
+
+.genero {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;    
+}
+
+.episodios {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.card-episodio {
+    width: 230px;
+    height: 135px;
+    background-color: #E5E5E5;
+    border-radius: 4px;
+}
+
+.m-t-14 {
+    margin-top: 14px;
+}
+
+.m-t-20 {
+    margin-top: 20px;
+}
+
+.m-b-28 {
+    margin-bottom: 28px;
+}
+
+.m-t-56 {
+    margin-top: 56px;
+}
+
+.poster {
+    width: 392px;
+}
+
+.ph-30 {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.gap-150 {
+    gap: 150px;
+}
+
+.pt-50 {
+    padding-top: 50px;
 }
