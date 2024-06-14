@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modificar Texto do PDF</title>
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
+  <style>
+    #file-input {
+      margin-bottom: 10px;
+    }
+    #download-link {
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Modify PDF Text</h1>
+  <input type="file" id="file-input" />
+  <button id="modify-pdf">Modify PDF</button>
+  <a id="download-link">Download Modified PDF</a>
+
+  <script type="text/javascript">
+    document.getElementById('modify-pdf').addEventListener('click', async () => {
+      const input = document.getElementById('file-input').files[0];
+      if (!input) {
+        alert('Please select a PDF file first');
+        return;
+      }
+
+      const arrayBuffer = await input.arrayBuffer();
+
+      // Extract text with pdf.js
+      const pdfjsLib = window['pdfjs-dist/build/pdf'];
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.worker.min.js';
+
+      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      const page = await pdf.getPage(1);
+      const textContent = await page.getTextContent();
+
+      // Search for text and get positions
+      const textToReplace = '[NOME_LOJA]';
+      const newText = 'Caju Brasil';
+      let positions = [];
+
+      textContent.items.forEach((item) => {
+        console.log('item:')
+        console.log(item)
+        if (item.str.includes(textToReplace)) {
+          positions.push({
+            x: item.transform[4],
+            y: item.transform[5],
+            width: item.width,
+            height: item.height,
+            oldText: item.str,
+          });
+        }
+      });
+
+      if (positions.length === 0) {
+        alert('Text not found in the PDF');
+        return;
+      }
+
+      // Load the PDF with PDF-LIB and replace text
+      const pdfLib = PDFLib;
+      const pdfDoc = await pdfLib.PDFDocument.load(arrayBuffer);
+      const pages = pdfDoc.getPages();
+      const firstPage = pages[0];
+
+      positions.forEach(({ x, y, width, height, oldText }) => {
+        // Draw a white rectangle over the old text
+        firstPage.drawRectangle({
+          x: x,
+          y: y - height,
+          width: width,
+          height: height,
+          color: pdfLib.rgb(1, 1, 1),
+        });
+
+        // Draw the new text
+        firstPage.drawText(newText, {
+          x: x,
+          y: y - height,
+          size: 12,
+          color: pdfLib.rgb(0, 0, 0),
+        });
+      });
+
+      const pdfBytes = await pdfDoc.save();
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+
+      const downloadLink = document.getElementById('download-link');
+      downloadLink.href = url;
+      downloadLink.download = 'modified.pdf';
+      downloadLink.style.display = 'block';
+    });
+  </script>
+</body>
+</html>

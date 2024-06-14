@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1, h2 {
+      color: #2C3E50;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      border-bottom: 2px solid #2C3E50;
+      padding-bottom: 5px;
+    }
+    .highlight {
+      background-color: #ECF0F1;
+      padding: 5px;
+      border-radius: 3px;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #7F8C8D;
+    }
+  </style>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #2C3E50;
+      text-align: center;
+    }
+    h2 {
+      color: #2C3E50;
+      border-bottom: 2px solid #2C3E50;
+      padding-bottom: 5px;
+      margin-top: 20px;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .section p {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+    .highlight {
+      background-color: #ECF0F1;
+      padding: 5px;
+      border-radius: 3px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      background-color: #ECF0F1;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #7F8C8D;
+    }
+    .footer a {
+      color: #3498DB;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Relatório <span id="nome-loja">[NOME_LOJA]</span></h1>
+
+  <div class="section">
+    <h2>Recomendações</h2>
+    <p>Número total de recomendações no período: <span id="recomendacoes-count">[RECOMENDACOES_COUNT]</span></p>
+    <p>Média de 5.70% no período, acima do que é trabalhado pelas ferramentas de recomendação.</p>
+  </div>
+
+  <div class="section">
+    <h2>Mais Recomendados</h2>
+    <p>Produto mais recomendados do mês:</p>
+    <ul>
+      <li><span id="produto-recomendado1">[PRODUTO_RECOMENDADO1]</span>: <span id="produto-recomendado-count1">[PRODUTO_RECOMENDADO_COUNT1]</span></li>
+      <li><span id="produto-recomendado2">[PRODUTO_RECOMENDADO2]</span>: <span id="produto-recomendado-count2">[PRODUTO_RECOMENDADO_COUNT2]</span></li>
+      <li><span id="produto-recomendado3">[PRODUTO_RECOMENDADO3]</span>: <span id="produto-recomendado-count3">[PRODUTO_RECOMENDADO_COUNT3]</span></li>
+      <li><span id="produto-recomendado4">[PRODUTO_RECOMENDADO4]</span>: <span id="produto-recomendado-count4">[PRODUTO_RECOMENDADO_COUNT4]</span></li>
+      <li><span id="produto-recomendado5">[PRODUTO_RECOMENDADO5]</span>: <span id="produto-recomendado-count5">[PRODUTO_RECOMENDADO_COUNT5]</span></li>
+    </ul>
+    <p>E mais <span id="qtd-produtos-recomendados">[QTD_PRODUTOS_RECOMENDADOS]</span> produtos com recomendações.</p>
+  </div>
+
+  <div class="section">
+    <h2>Top Regiões</h2>
+    <p>Regiões que mais geraram recomendações:</p>
+    <ul>
+      <li><span id="regiao1">[REGIAO_1]</span>: <span id="qtd-regiao1">[QTD_REGIAO1]</span></li>
+      <li><span id="regiao2">[REGIAO_2]</span>: <span id="qtd-regiao2">[QTD_REGIAO2]</span></li>
+      <li><span id="regiao3">[REGIAO_3]</span>: <span id="qtd-regiao3">[QTD_REGIAO3]</span></li>
+      <li><span id="regiao4">[REGIAO_4]</span>: <span id="qtd-regiao4">[QTD_REGIAO4]</span></li>
+      <li><span id="regiao5">[REGIAO_5]</span>: <span id="qtd-regiao5">[QTD_REGIAO5]</span></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <p>Have a question? Visit <a href="https://shape-u.ai">https://shape-u.ai</a> or email us at <a href="mailto:shape-u@audaces.com">shape-u@audaces.com</a>.</p>
+    <p>Together we are revolutionizing the market with technology and operational efficiency.</p>
+  </div>
+
+  <script>
+    // JavaScript to replace placeholders with actual values
+    document.getElementById('nome-loja').textContent = 'Caju Brasil';
+    document.getElementById('recomendacoes-count').textContent = '123';
+    document.getElementById('produto-recomendado1').textContent = 'Produto 1';
+    document.getElementById('produto-recomendado-count1').textContent = '30';
+    document.getElementById('produto-recomendado2').textContent = 'Produto 2';
+    document.getElementById('produto-recomendado-count2').textContent = '25';
+    document.getElementById('produto-recomendado3').textContent = 'Produto 3';
+    document.getElementById('produto-recomendado-count3').textContent = '20';
+    document.getElementById('produto-recomendado4').textContent = 'Produto 4';
+    document.getElementById('produto-recomendado-count4').textContent = '15';
+    document.getElementById('produto-recomendado5').textContent = 'Produto 5';
+    document.getElementById('produto-recomendado-count5').textContent = '10';
+    document.getElementById('qtd-produtos-recomendados').textContent = '5';
+    document.getElementById('regiao1').textContent = 'Região 1';
+    document.getElementById('qtd-regiao1').textContent = '50';
+    document.getElementById('regiao2').textContent = 'Região 2';
+    document.getElementById('qtd-regiao2').textContent = '40';
+    document.getElementById('regiao3').textContent = 'Região 3';
+    document.getElementById('qtd-regiao3').textContent = '30';
+    document.getElementById('regiao4').textContent = 'Região 4';
+    document.getElementById('qtd-regiao4').textContent = '20';
+    document.getElementById('regiao5').textContent = 'Região 5';
+    document.getElementById('qtd-regiao5').textContent = '10';
+  </script>
+  
+</body>
+</html>

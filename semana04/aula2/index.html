@@ -1,0 +1,30 @@
+<html>
+    <head></head>
+    <body>
+        
+        <form id="myForm" onsubmit="submitForm(event)">
+            <input type="text" name="username" placeholder="Username">
+            <button type="submit">Enviar</button>
+        </form>
+
+        <!-- 
+        click
+        submit
+        keydown / keyup 
+         -->
+        <script>
+            const myForm = document.getElementById('myForm')
+
+            function submitForm(event) {
+                event.preventDefault()
+                console.log('submit')
+            }
+
+            // myForm.addEventListener('submit', (event) => {
+            //     event.preventDefault() // Previne o envio padrão do form
+            //     console.log('Submit do Form')
+            //     console.log(event)
+            // })
+        </script>
+    </body>
+</html>

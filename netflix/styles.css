@@ -10,8 +10,10 @@
     flex-direction: column;
     background-color: black;
     min-height: 100%;   
-    /* background-image: url('./imgs/poster.png');
-    background-repeat: cover; */
+    background-image: url('./imgs/poster.png');
+    /* background-repeat: no-repeat; */
+    /* background-position: center;
+    background-size: contain; */
     
 }
 

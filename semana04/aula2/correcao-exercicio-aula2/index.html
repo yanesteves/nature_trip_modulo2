@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .default-paragraph {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .dark-mode {
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="myInput" placeholder="Escreva algo...">
+
+        <p id="paragraph" class="default-paragraph">Este é um parágrafo de exemplo</p>
+
+        <div class="controls">
+            <button id="btn-cor">Mudar Cor do Texto</button>
+            <button id="btn-classe" onclick="modificarClasse()">Adicionar / Remover Classe</button>
+            <button id="btn-atributo" onclick="modificarAtributo()">Adicionar / Remover Atributo</button>
+        </div>
+    </div>
+
+    <script>
+        const myInput = document.getElementById('myInput')
+        myInput.addEventListener('keydown', (event) => {
+            console.log('Key Down')
+            // console.log(event)
+            if (event.code === 'Enter') {
+                console.log('apertou o enter')
+            }
+            // console.log(`Key down: ${event.key}`);
+        });
+
+        const btnCor = document.getElementById('btn-cor')
+        btnCor.addEventListener('click', (event) => {
+            console.log('btn cor clicado')
+            console.log(event)
+        })
+
+
+        function modificarCor() {
+            const paragrafo = document.getElementById('paragraph')
+            paragrafo.style.color = 'red'
+        }
+
+        function modificarClasse() {
+            const paragrafo = document.getElementById('paragraph')
+            paragrafo.classList.toggle('dark-mode')
+        }
+
+        function modificarAtributo() {
+            const paragrafo = document.getElementById('paragraph')
+            paragrafo.setAttribute('aria-label', 'Este é um parágrafo')
+        }
+    </script>
+</body>
+
+</html>
